@@ -1,6 +1,5 @@
 .idea/
 main
-main-old
 *.exe
 *.json
 !config-exp.json
