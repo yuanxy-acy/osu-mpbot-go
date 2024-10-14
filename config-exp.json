@@ -1,0 +1,9 @@
+{
+    "webapi_token":"your osu webapi v1 token",
+    "database_host":"127.0.0.1:3306",
+    "database_name":"dbname",
+    "database_user":"username",
+    "database_password":"password",
+    "irc_nick":"bot nick name",
+    "irc_pass":"irc password"
+    }
