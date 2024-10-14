@@ -5,7 +5,6 @@ import (
 	"net"
 	"osu_mp_bot/database"
 	"osu_mp_bot/log"
-	"osu_mp_bot/util"
 	"strings"
 	"time"
 )
@@ -64,7 +63,6 @@ func connect() {
 				if item == "" {
 					break
 				}
-				util.DeleteExtraSpace(item)
 				args := strings.Split(item[1:], " ")
 				if len(args) < 2 {
 					fmt.Print(args[0])

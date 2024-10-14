@@ -8,16 +8,22 @@ import (
 	"strings"
 )
 
-func msgFun(roomId, user string, args []string) {
-	if len(args[0]) < 3 {
+func msgFun(roomId, user string, _args []string) {
+	if len(_args[0]) < 3 {
 		return
 	}
-	args[0] = args[0][1:]
+	_args[0] = _args[0][1:]
 	if user == "BanchoBot" {
-		banchoMsg(roomId, args)
+		banchoMsg(roomId, _args)
 		return
 	}
-	args[0] = strings.Replace(args[0], "！", "!", 1)
+	_args[0] = strings.Replace(_args[0], "！", "!", 1)
+	var args []string
+	for _, value := range _args {
+		if value == "" {
+			args = append(args, value)
+		}
+	}
 	if database.GetMpMode(roomId) == -1 {
 		args[0] = args[0][1:]
 		baseCmdFun(roomId, user, args)
@@ -55,7 +61,7 @@ func msgFun(roomId, user string, args []string) {
 				case "host":
 					info := webapi.GetUserInfo(user)
 					if database.GetRoomHost(roomId) == "" {
-						sendMsg(roomId, "!mp host"+info.Name)
+						sendMsg(roomId, "!mp host "+info.Name)
 					} else {
 						sendMsg(roomId, "请等待当前房主选图")
 					}

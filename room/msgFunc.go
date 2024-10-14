@@ -11,6 +11,7 @@ func pick(roomid, bid, user string) {
 	title, star, cs, ar, od, hp, ifGot := getMapDiff(bid)
 	if !ifGot {
 		sendMsg(roomid, "获取谱面信息失败")
+		return
 	}
 	if mapInAble(roomid, star, cs, ar, od, hp) {
 		database.AddPickedMap(roomid, bid, user)

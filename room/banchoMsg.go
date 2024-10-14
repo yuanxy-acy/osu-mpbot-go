@@ -120,6 +120,9 @@ func banchoMsg(roomId string, args []string) {
 			if database.GetMpMode(roomId) == -1 {
 				return
 			}
+			if bid == database.GetNowBid(roomId) {
+				return
+			}
 			sendMapInfo(roomId, bid)
 			sendMapLink(roomId, bid)
 			return
@@ -146,8 +149,11 @@ func banchoMsg(roomId string, args []string) {
 			} else {
 				switch database.GetMpMode(roomId) {
 				case 0:
+					if bid == database.GetNowBid(roomId) {
+						return
+					}
 					sendMsg(roomId, "!mp map "+database.GetNowBid(roomId))
-					pick(roomId, args[1], database.GetRoomHost(roomId))
+					pick(roomId, bid, database.GetRoomHost(roomId))
 					sendMsg(roomId, "!mp clearhost")
 					return
 				case 1, 3:

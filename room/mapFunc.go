@@ -77,7 +77,7 @@ func sendMapInfo(roomId string, bid string) {
 	case "3":
 		mode = "mania"
 	}
-	sendMsg(roomId, approved+" "+mode+"[osu://b/"+rev[0]["beatmap_id"]+" "+title+"] rating: "+rev[0]["difficultyrating"]+" time: "+time+" bpm: "+rev[0]["bpm"]+" CS: "+rev[0]["diff_size"]+" AR: "+rev[0]["diff_approach"]+" OD: "+rev[0]["diff_overall"]+" HP: "+rev[0]["diff_drain"])
+	sendMsg(roomId, approved+" "+mode+" [osu://b/"+rev[0]["beatmap_id"]+" "+title+"] rating: "+rev[0]["difficultyrating"]+" time: "+time+" bpm: "+rev[0]["bpm"]+" CS: "+rev[0]["diff_size"]+" AR: "+rev[0]["diff_approach"]+" OD: "+rev[0]["diff_overall"]+" HP: "+rev[0]["diff_drain"])
 }
 
 func sendMapLink(roomId string, bid string) {
