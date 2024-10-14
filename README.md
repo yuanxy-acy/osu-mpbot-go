@@ -1,0 +1,1 @@
+# osu-mpbot-go
